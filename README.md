@@ -1,34 +1,44 @@
 ## Final Project: Script 1
 ### Web-scraping Weather Forecast Information with Python
-In this lab, you will work with a script that scrapes the 5-day weather forecast from the National Weather Service website. The script extracts information from multiple elements listed under the same class name using the BeautifulSoup library. 
-
-- Download the `NWS_WeatherForecast.py` file and run it in your local IDE or open it, then copy/paste it into a code cell in a new Colab notebook.
-
-- Read the description and comments in the script to understand the purpose of the script
-
-- Run the script. You will see some packages being installed when you run it for the first time.
-
-- The script returns the 5-day forecast for Worcester, MA (Lat: 42.2634, Lon: -71.8022) with the latitude and longitude information provided. Using the latitude and longitude values, it generates the following URL through string concatenation: https://forecast.weather.gov/MapClick.php?lat=42.2634&lon=-71.8022
-
-- Open this URL in a Firefox or Chrome browser. Locate the information that is being outputted in our script. Right click on this and select the Inspect Element option. This will launch the Inspector window that helps locate different elements on the page.
-
-- Notice that all forecast containers in this section are located in the `forecast-tombstone` class inside the `li` tag. In order to scrape multiple elements listed under the same class name, we utilize the `findAll()` function from BeautifulSoup. The tag and class names are required arguments for this function.
-
-### Edit the NWS_ WeatherForecast.py script to add the following functionality:
-1. Take latitude and longitude values as inputs in decimal degrees from user
-
-2.	Convert the latitude and longitude values to strings to generate the URL for the selected location. Pass this URL as an argument in the `get()` request.
-
-3.	The returned forecast information did not preserve its spacing during the scraping process. Using the `replace()` function, fix any spacing issues with the output
-
-4.	Convert the final output to uppercase
-
-Remember to update your file to include comments and documentation in your script to tell me what it’s doing!
-
+This script scrapes a NWS weather forecast from weather.gov based on coordinates given by the user. 
+The script asks the user to input a location as lat and lon values then fetches the forecast for that location from weather.gov.
+The contents of the forecast is then formatted and put in a list, then printed out to the user.
+Inputs taken are lattitude and longitude, as numbers, which are converted to strings to be used in the url for weather.gov.
+Output given is the formated weather forecast for the input location.
+  
+The script functions as intended and I did not have issues adapting it.
+Scraping information off the web with python is a useful tool I can see many uses for. In this code, it allows the user to easily look through many 
+weather forecasts without having to type in and go to those addresses. This could be automated further for utility in a larger program.
+  
 ## Final Project: Script 2
-### Your Chosen Assignment
-For this script, you will complete the assignment that you have proposed, which involves creating a new script, completing an online tutorial, or modifying a previous exercise or lab. You'll need to save that file or notebook into this repo: be sure to include comments and documentation in your script to tell me what it’s doing!
+### Create graphs of frost dates based on NOAA historical climate data
+This script takes a NOAA historical climate data set in csv format as input. The set must have atleast date and minimum temperature (TMIN) in it.
+The dates of the first and last frosts are calculated for every year with data in the set.
+Any NOAA historical data set in csv format with dates and TMIN will work.
+Graphs with trend lines are output to visualize the dates. Dates shown as day of year.
+  
+First frost is defined here as the first freezing (<=32F) temperature day after the summer.
+Last frost is defined here as the last freezing (<=32F) temperature day before the summer.
+  
+In creating this script I used the full historical daily summaries data set from Buffumville Lake, MA US (1959 - 2021) available online from NOAA. 
+This station and data download can be found at https://www.ncdc.noaa.gov/cdo-web/datasets/GHCND/stations/GHCND:USC00190998/detail.
+  
+The script requires one of these NOAA historical datasets to run. The script is set up to ask for the address of the data; it can also be put in before running. 
+  
+The script is meant to identify the first and last occurances of frosts during the begining and end of the cold season, as defined above.
+These are found for each year with the necessary data, then combined into a data set with only the first or last frost dates.
+The output of the script are graphs which allow for interpretation of the frost dates.
+For example: at Buffumville Lake, the date of the first frost is trending later, and the date of the last frost is trending early. This means the trend of the cold season is it is becoming shorter. 
+  
+#### Writing the script
+The idea of the script is based on a code I wrote in R for the same purpose. My goal was to learn more about using pandas and python in general for manipulating and visualizing data. 
+I used pandas online reference and user guides for understanding the basics of pandas and using dataframes at https://pandas.pydata.org/docs/reference/. Stack Overflow for troubleshooting the many errors and issues I encountered at https://stackoverflow.com/. And realpython ploting guide for learning to make basic plots at https://realpython.com/pandas-plot-python/. 
+  
+I found writing this script I bit more challenging than anticipated, especially since I already had an outline for it from R. 
+My first plan was to scrape historical weather data from the web to run the process on, but I found that to be a bit tricky, and instead decided to focus on manipulating and visualizing the data from a downloaded source.
+I had many small errors and struggles, but most could be figured out by changing a few lines of code and checking for solutions online. 
+My main recurring issue was and learning curve was dealing with adding, removing and changing entries in a dataframe. Part of the code is creating a new dataframe from only the frost dates, I learned the best way to do this is with lists, rather than iteratively adding directly to a new dataframe. 
+  
+Overall I am happy with the final script.
 
-## Final Project: Documentation
-### Changing this README
-Your write-up will be here, on this README page. You will need to edit this page with your new text: you do **not** need to keep these instructions on your README! 
+
