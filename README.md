@@ -29,7 +29,8 @@ The script requires one of these NOAA historical datasets to run. The script is 
 The script is meant to identify the first and last occurances of frosts during the begining and end of the cold season, as defined above.
 These are found for each year with the necessary data, then combined into a data set with only the first or last frost dates.
 The output of the script are graphs which allow for interpretation of the frost dates.
-For example: at Buffumville Lake, the date of the first frost is trending later, and the date of the last frost is trending early. This means the trend of the cold season is it is becoming shorter. 
+For example: at Buffumville Lake, the date of the first frost is trending later, and the date of the last frost is trending early. This means the trend of the cold season is it is becoming shorter.   
+If you use this data, you will notive there is an quite the outlier in last frost dates in 1990. This exists in the original data set, so it may be an error in the data. 
   
 #### Writing the script
 The idea of the script is based on a code I wrote in R for the same purpose. My goal was to learn more about using pandas and python in general for manipulating and visualizing data. 
