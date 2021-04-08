@@ -22,6 +22,7 @@ Last frost is defined here as the last freezing (<=32F) temperature day before t
   
 In creating this script I used the full historical daily summaries data set from Buffumville Lake, MA US (1959 - 2021) available online from NOAA. 
 This station and data download can be found at https://www.ncdc.noaa.gov/cdo-web/datasets/GHCND/stations/GHCND:USC00190998/detail.
+A mirror of this station data that I used is also included in the repository.
   
 The script requires one of these NOAA historical datasets to run. The script is set up to ask for the address of the data; it can also be put in before running. 
   
