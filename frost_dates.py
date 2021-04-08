@@ -89,6 +89,7 @@ firstfrost.plot(x='YEAR',y='DAY_OF_YEAR',kind='scatter')          # Create the s
 z = np.polyfit(firstfrost['YEAR'], firstfrost['DAY_OF_YEAR'], 1)  # Create a trend line
 p = np.poly1d(z)
 plb.plot(firstfrost['YEAR'],p(firstfrost['YEAR']),'-r')           # Add trend line to plot
+plt.title('First Frost')
 plt.show()                                                        # Display graph
 
 # Plot of last frosts
@@ -96,4 +97,5 @@ lastfrost.plot(x='YEAR',y='DAY_OF_YEAR')                        # Create the sca
 z = np.polyfit(lastfrost['YEAR'], lastfrost['DAY_OF_YEAR'], 1)  # Create a trend line
 p = np.poly1d(z)
 plb.plot(lastfrost['YEAR'],p(lastfrost['YEAR']),'-r')           # Add trend line to plot
+plt.title('Last Frost')
 plt.show()                                                      # Display graph
